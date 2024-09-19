@@ -406,8 +406,8 @@ button:hover {
   }
 .card-button button {
   width: 250px;
-  padding:10px;
-  font-size: medium;
+  padding:20px;
+  font-size:large;
 }
 }
 /* --------------------- Setting For Print -------------------------------------------- */
