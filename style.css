@@ -187,21 +187,20 @@ input[type="file"] {
     width: 95%;
   }
   .cv-heading h1 {
-    width:80vw;
-    font-size:x-large;
+    width: 80vw;
+    font-size: x-large;
     margin-bottom: 2rem;
-   
   }
   .page-01 a button {
     width: 70vw;
-    font-size:large;
-    height:3.5rem;
-    padding:0rem;
+    font-size: large;
+    height: 3.5rem;
+    padding: 0rem;
   }
   input,
   textarea,
   .personal-information .flex label {
-    width:100%;
+    width: 100%;
   }
 
   fieldset {
@@ -223,9 +222,9 @@ input[type="file"] {
   border-radius: 10px;
 }
 .header {
-  margin:0 auto;
+  margin: 0 auto;
   margin-top: 3rem;
-  margin-bottom:1rem;
+  margin-bottom: 1rem;
   width: 90%;
   background-color: #ffffff;
   height: 50vh;
@@ -258,13 +257,12 @@ input[type="file"] {
 
 /*  cards section */
 .cards-section {
-width:90%;
-margin:0 auto;
-display: grid;
-grid-template-columns:1fr 1fr;
-grid-auto-rows:min-content;
-gap:1rem;
-  
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: min-content;
+  gap: 1rem;
 }
 .cards-section > div {
   border: 3px solid #004483;
@@ -368,7 +366,7 @@ button:hover {
 @media screen and (max-width: 800px) {
   .card-button button {
     width: 300px;
-    padding:20px;
+    padding: 20px;
   }
   .task-5-button {
     display: flex;
@@ -385,11 +383,11 @@ button:hover {
 }
 
 @media screen and (max-width: 550px) {
-  .section-of-cv{
-    width:100%;
+  .section-of-cv {
+    width: 100%;
   }
   .header .right-text {
-    margin-left:2rem;
+    margin-left: 2rem;
     text-align: start;
   }
   .header .right-text > div {
@@ -400,15 +398,15 @@ button:hover {
   }
 }
 
-@media screen and (max-width:400px) {
-  .section-of-cv{
-    width:100%;
+@media screen and (max-width: 400px) {
+  .section-of-cv {
+    width: 100%;
   }
-.card-button button {
-  width: 250px;
-  padding:15px;
-  font-size:large;
-}
+  .card-button button {
+    width: 250px;
+    padding: 15px;
+    font-size: large;
+  }
 }
 /* --------------------- Setting For Print -------------------------------------------- */
 
@@ -422,7 +420,6 @@ button:hover {
     padding: 0px;
     width: 100%;
     height: 100%;
-    /* background-color: red; */
   }
   .section-of-cv {
     height: 100%;
@@ -434,7 +431,6 @@ button:hover {
   .header {
     width: 90%;
     height: 30vh;
-    /* background-color: brown; */
   }
   .cards-section {
     gap: 10px;
@@ -463,7 +459,7 @@ button:hover {
   .header .right-text {
     width: 60%;
   }
-  .cards-button {
+  .card-button {
     display: none;
   }
 }
