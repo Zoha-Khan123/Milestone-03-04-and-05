@@ -135,6 +135,7 @@ input[type="file"] {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   gap: 10px;
   width: 50%;
   cursor: pointer;
@@ -185,18 +186,22 @@ input[type="file"] {
   form {
     width: 95%;
   }
-
   .cv-heading h1 {
-    font-size: larger;
-    width: 80vw;
-    height: 4rem;
-    font-size: xx-large;
+    width:80vw;
+    font-size:x-large;
     margin-bottom: 2rem;
+   
+  }
+  .page-01 a button {
+    width: 70vw;
+    font-size:large;
+    height:3.5rem;
+    padding:0rem;
   }
   input,
   textarea,
   .personal-information .flex label {
-    width: 80%;
+    width:100%;
   }
 
   fieldset {
@@ -376,6 +381,7 @@ button:hover {
 }
 
 @media screen and (max-width: 550px) {
+  
   .header .right-text {
     margin-left: 3rem;
     text-align: start;
