@@ -368,7 +368,7 @@ button:hover {
 @media screen and (max-width: 800px) {
   .card-button button {
     width: 300px;
-    padding: 20px;
+    padding:20px;
   }
   .task-5-button {
     display: flex;
@@ -406,7 +406,7 @@ button:hover {
   }
 .card-button button {
   width: 250px;
-  padding:20px;
+  padding:15px;
   font-size:large;
 }
 }
