@@ -223,7 +223,9 @@ input[type="file"] {
   border-radius: 10px;
 }
 .header {
+  margin:0 auto;
   margin-top: 3rem;
+  margin-bottom:1rem;
   width: 90%;
   background-color: #ffffff;
   height: 50vh;
@@ -256,11 +258,13 @@ input[type="file"] {
 
 /*  cards section */
 .cards-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-auto-rows: min-content;
-  gap: 2rem;
-  padding: 2rem 2rem;
+width:90%;
+margin:0 auto;
+display: grid;
+grid-template-columns:1fr 1fr;
+grid-auto-rows:min-content;
+gap:1rem;
+  
 }
 .cards-section > div {
   border: 3px solid #004483;
@@ -381,9 +385,11 @@ button:hover {
 }
 
 @media screen and (max-width: 550px) {
-  
+  .section-of-cv{
+    width:100%;
+  }
   .header .right-text {
-    margin-left: 3rem;
+    margin-left:2rem;
     text-align: start;
   }
   .header .right-text > div {
@@ -394,6 +400,16 @@ button:hover {
   }
 }
 
+@media screen and (max-width:400px) {
+  .section-of-cv{
+    width:100%;
+  }
+.card-button button {
+  width: 250px;
+  padding:10px;
+  font-size: medium;
+}
+}
 /* --------------------- Setting For Print -------------------------------------------- */
 
 @media print {
