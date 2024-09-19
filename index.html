@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editable CV</title>
+    <link rel="stylesheet" href="style.css" />
+   <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+  integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+
+  </head>
+  <body>
+    <!----------------------- Form Section -------------------------->
+    <div id="top">
+    <div class="form-section">
+
+    <div class="page-01">
+    <form onsubmit="return takeValue()">
+
+      <div class="flex cv-heading">
+        <h1>Dynamic CV</h1>
+      </div>
+
+      <!-- Personal Information -->
+      <div class="flex">
+        <fieldset>
+          <legend>PERSONAL INFORMATION</legend>
+
+          <div class="personal-information">
+            <!-- Name -->
+            <label for="name">Full Name:</label>
+            <input type="text" name="name" id="Name" placeholder="Enter your name" />
+
+            <!-- Email -->
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="Email" placeholder="Enter your email" />
+
+            <!-- Phone Number -->
+            <label for="phone">Phone Number:</label>
+            <input type="tel" name="phone" id="Phone" placeholder="Enter your phone no" />
+
+
+   <!-- Image submit button -->
+        <label for="file">Image Upload:</label>
+         <input type="file" name="file" id="input-file" accept="image/*">
+
+        <div class="flex">
+       <label for="input-file">
+       <i class="fa-solid fa-camera"></i> Choose a Photo
+       </label>
+       </div> 
+
+
+
+        </fieldset>
+
+      </div>
+
+
+
+      
+      <!-- About -->
+      <div class="flex">
+        <fieldset>
+          <legend>ABOUT SECTION</legend>
+          <div class="about-me">
+            <label for="about">About Me:</label>
+            <textarea name="about" id="About"></textarea>
+          </div>
+        </fieldset>
+      </div>
+
+
+      <!-- Education -->
+      <div class="flex">
+        <fieldset>
+          <legend>EDUCATION SECTION</legend>
+          <div class="education-section">
+            <label for="education">Education Section:</label>
+            <textarea name="education" id="Education"></textarea>
+          </div>
+        </fieldset>
+      </div>
+
+
+      <!-- Skills -->
+      <div class="flex">
+        <fieldset>
+          <legend>SKILLS SECTION</legend>
+          <div class="skill-section">
+            <label for="skill">Skills Section:</label>
+            <textarea name="skill" id="Skill"></textarea>
+          </div>
+        </fieldset>
+      </div>
+
+      <!-- Languages -->
+      <div class="flex">
+        <fieldset>
+          <legend>LANGUAGES SECTION</legend>
+          <div class="language-section">
+            <label for="language">Languages:</label>
+            <textarea name="language" id="Language"></textarea>
+          </div>
+        </fieldset>
+      </div>
+      
+      <!-- Buttons  -->
+<div class="button">
+  <a href="#top">
+    <button id="button">Generate CV</button>
+  </a>
+    </div>
+    </form>
+  </div>
+
+</div>
+</div>
+<!--------------------------- CV Section ---------------------------->
+<!-- Apply class of cv-section for switch form -->
+<div class="cv-section"  style="display: none;">
+
+<section class="flex">
+<div class="section-of-cv">
+
+  <div class="flex">
+  <div class="header flex">
+
+
+  <!-- Profile Pic -->
+  <div class="left-image flex"><img src="Pic.jpg" alt="" id="profile-pic"></div>
+  
+  <!-- Text Here -->
+  <div class="right-text">
+    <div id="name">
+      Name: <span id="dynamicName"></span>
+    </div>
+    <div id="email">
+      Email: <span id="dynamicEmail"></span>
+    </div>
+    <div id="phone-no">
+      Phone No: <span id="dynamicPhone"></span>
+    </div>
+    
+  </div>
+
+</div>
+</div>
+
+
+
+ <!-- Cards Section  -->
+<div class="cards-section">
+
+  <div class="skills-languages">
+
+<div class="skills">
+      <h1>Skills</h1>
+      <p id="dynamicSkills"></p>
+    </div>
+    
+    <div class="languages">
+      <h1>Languages</h1>
+      <p id="dynamicLanguages"></p>
+    </div>
+  
+</div>
+  
+  <div class="about">
+    <h1>About</h1>
+    <p id="dynamicAbout"></p>
+  </div>
+
+  <div class="education">
+    <h1>Education</h1>
+    <p id="dynamicEducation"></p>
+  </div>
+
+  
+</div>
+
+<!-- Buttons -->
+<div class="card-button">
+
+  <div class="task-4-button flex">
+  <button id="edit-btn">Editable Button</button>
+  </div>
+
+
+  <div class="task-5-button flex">
+  <button id="pdf-btn">PDF Button</button>
+  <button id="shareable-btn">Sharebale Button</button>
+  </div>
+
+  </div>
+  </div>
+</section>
+
+</div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
