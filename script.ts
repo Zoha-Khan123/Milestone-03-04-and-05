@@ -1,14 +1,35 @@
+// Get references to necessary DOM elements
+const formSection = document.querySelector(".form-section") as HTMLDivElement;
+const cvSection = document.querySelector(".cv-section") as HTMLDivElement;
+const nameInput = document.getElementById('Name') as HTMLInputElement | null;
+const button = document.getElementById('button') as HTMLButtonElement | null;
+const profilePic = document.getElementById("profile-pic") as HTMLImageElement | null;
+const inputFile = document.getElementById("input-file") as HTMLInputElement | null;
+const pdfButton = document.getElementById("pdf-btn") as HTMLButtonElement | null;
+const editButton = document.getElementById("edit-btn") as HTMLButtonElement;
+const shareableButton = document.getElementById("shareable-btn") as HTMLButtonElement | null;
+
+let selectedFile: File | null = null;
+
 // Utility function to get query parameters from the URL
 function getQueryParam(param: string): string | null {
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.get(param);
 }
 
+// Field mapping for dynamic content updates
+const fields = [
+  { inputId: 'Name', outputId: 'dynamicName' },
+  { inputId: 'Email', outputId: 'dynamicEmail' },
+  { inputId: 'Phone', outputId: 'dynamicPhone' },
+  { inputId: 'About', outputId: 'dynamicAbout' },
+  { inputId: 'Education', outputId: 'dynamicEducation' },
+  { inputId: 'Skill', outputId: 'dynamicSkills' },
+  { inputId: 'Language', outputId: 'dynamicLanguages' }
+];
+
 // DOMContentLoaded event to handle initial page load logic
 window.addEventListener('DOMContentLoaded', () => {
-  const formSection = document.querySelector(".form-section") as HTMLDivElement;
-  const cvSection = document.querySelector(".cv-section") as HTMLDivElement;
-
   // Initially show form and hide CV
   formSection.style.display = "block";
   cvSection.style.display = "none";
@@ -16,17 +37,17 @@ window.addEventListener('DOMContentLoaded', () => {
   // If URL contains '#cv', show the CV section and load data from local storage
   if (window.location.hash === '#cv') {
     const nameFromURL = getQueryParam('name');
-
+    
     if (nameFromURL) {
       formSection.style.display = "none";
       cvSection.style.display = "block";
 
       // Load data from local storage using the name as a key
       const savedData = localStorage.getItem(nameFromURL);
-
+      
       if (savedData) {
         const formData = JSON.parse(savedData);
-
+        
         // Populate CV fields from saved data
         fields.forEach(({ inputId, outputId }) => {
           const outputElement = document.getElementById(outputId) as HTMLElement | null;
@@ -44,25 +65,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
-
-// Field mapping for dynamic content updates
-const fields = [
-  { inputId: 'Name', outputId: 'dynamicName' },
-  { inputId: 'Email', outputId: 'dynamicEmail' },
-  { inputId: 'Phone', outputId: 'dynamicPhone' },
-  { inputId: 'About', outputId: 'dynamicAbout' },
-  { inputId: 'Education', outputId: 'dynamicEducation' },
-  { inputId: 'Skill', outputId: 'dynamicSkills' },
-  { inputId: 'Language', outputId: 'dynamicLanguages' }
-];
-
-// Get references to necessary DOM elements
-const nameInput = document.getElementById('Name') as HTMLInputElement | null;
-const button = document.getElementById('button') as HTMLButtonElement | null;
-const profilePic = document.getElementById("profile-pic") as HTMLImageElement | null;
-const inputFile = document.getElementById("input-file") as HTMLInputElement | null;
-const pdfButton = document.getElementById("pdf-btn") as HTMLButtonElement | null;
-let selectedFile: File | null = null;
 
 // Handle file input for profile picture
 inputFile?.addEventListener('change', () => {
@@ -113,19 +115,18 @@ button?.addEventListener('click', (event) => {
   }
 
   // Hide the form section and show the CV section
-  (document.querySelector(".form-section") as HTMLDivElement).style.display = "none";
-  (document.querySelector(".cv-section") as HTMLDivElement).style.display = "block";
+  formSection.style.display = "none";
+  cvSection.style.display = "block";
 });
 
 // Function to switch back to form for editing
 function editForm(): void {
   window.scrollTo({ top: 0, behavior: 'smooth' });
-  (document.querySelector(".cv-section") as HTMLDivElement).style.display = "none";
-  (document.querySelector(".form-section") as HTMLDivElement).style.display = "block";
+  cvSection.style.display = "none";
+  formSection.style.display = "block";
 }
 
 // Event listener for the "Edit" button
-const editButton = document.getElementById("edit-btn") as HTMLButtonElement;
 editButton.addEventListener("click", (event) => {
   event.preventDefault();
   editForm();
@@ -136,18 +137,17 @@ pdfButton?.addEventListener("click", (event) => {
   event.preventDefault();
 
   // Show the CV section for PDF generation
-  (document.querySelector(".form-section") as HTMLDivElement).style.display = "none";
-  (document.querySelector(".cv-section") as HTMLDivElement).style.display = "block";
+  formSection.style.display = "none";
+  cvSection.style.display = "block";
 
   window.print();
 
   // Ensure the CV section remains visible after printing
-  (document.querySelector(".form-section") as HTMLDivElement).style.display = "none";
-  (document.querySelector(".cv-section") as HTMLDivElement).style.display = "block";
+  formSection.style.display = "none";
+  cvSection.style.display = "block";
 });
 
 // Shareable button functionality
-const shareableButton = document.getElementById("shareable-btn") as HTMLButtonElement | null;
 shareableButton?.addEventListener("click", (event) => {
   event.preventDefault();
 
@@ -159,6 +159,6 @@ shareableButton?.addEventListener("click", (event) => {
   alert(`Your shareable link is: ${shareableURL}`);
 
   // Show the CV section and hide the form
-  (document.querySelector(".form-section") as HTMLDivElement).style.display = "none";
-  (document.querySelector(".cv-section") as HTMLDivElement).style.display = "block";
+  formSection.style.display = "none";
+  cvSection.style.display = "block";
 });
