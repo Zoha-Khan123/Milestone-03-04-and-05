@@ -16,6 +16,7 @@ var fields = [
 var button = document.getElementById('button');
 var profilePic = document.getElementById("profile-pic");
 var inputFile = document.getElementById("input-file");
+var pdfButton = document.getElementById("pdf-btn");
 var selectedFile = null;
 inputFile === null || inputFile === void 0 ? void 0 : inputFile.addEventListener('change', function () {
     var _a;
@@ -46,40 +47,61 @@ button === null || button === void 0 ? void 0 : button.addEventListener('click',
     document.querySelector(".form-section").style.display = "none";
     document.querySelector(".cv-section").style.display = "block";
 });
+// Function to handle edit button click
 function editForm() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     document.querySelector(".cv-section").style.display = "none";
     document.querySelector(".form-section").style.display = "block";
 }
+// Edit button functionality
 var editButton = document.getElementById("edit-btn");
 editButton.addEventListener("click", function (event) {
     event.preventDefault();
     editForm();
 });
-// PDF Button
-var pdfBtn = document.getElementById("pdf-btn");
-var editBtn = document.getElementById("edit-btn");
-var shareableBtn = document.getElementById("shareable-btn");
-// Function to hide specific buttons
-function hideButtons() {
-    if (editBtn)
-        editBtn.style.display = "none";
-    if (pdfBtn)
-        pdfBtn.style.display = "none";
-    if (shareableBtn)
-        shareableBtn.style.display = "none";
-}
-// Function to show the buttons again after printing
-function showButtons() {
-    if (editBtn)
-        editBtn.style.display = "inline-block";
-    if (pdfBtn)
-        pdfBtn.style.display = "inline-block";
-    if (shareableBtn)
-        shareableBtn.style.display = "inline-block";
-}
-pdfBtn === null || pdfBtn === void 0 ? void 0 : pdfBtn.addEventListener("click", function () {
-    hideButtons(); // Hide the buttons
-    window.print(); // Trigger print dialog
-    setTimeout(showButtons, 0); // Show the buttons again after the print dialog
+// PDF button functionality - opens print dialog
+pdfButton === null || pdfButton === void 0 ? void 0 : pdfButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    // Hide form and only show CV in print
+    document.querySelector(".form-section").style.display = "none";
+    document.querySelector(".cv-section").style.display = "block";
+    // Trigger the print dialog to generate PDF
+    window.print();
+    // After print, return to original display
+    document.querySelector(".form-section").style.display = "none";
+    document.querySelector(".cv-section").style.display = "block";
 });
+// URL encoding
+function uriEncod() {
+    var currentUrl = new URL(window.location.href);
+    var usrname = document.getElementById("Name").value;
+    currentUrl.searchParams.delete("username");
+    currentUrl.searchParams.set("username", usrname);
+    var usrUriElement = document.getElementById("usruri");
+    //usrUriElement.innerText = currentUrl.toString();
+    usrUriElement.style.display = "block";
+    var tm = 20;
+    var tmr = setInterval(function () {
+        if (tm > 0) {
+            tm--;
+            usrUriElement.innerHTML = "<h3>" + currentUrl.toString() + "<br><br>Select & Copy your Unique Link<br>" + tm + "</h3>";
+        }
+        else {
+            usrUriElement.style.display = "none";
+            clearInterval(tmr);
+        }
+    }, 1000);
+}
+// URL decoding
+function uriDecod() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var uname = urlParams.get('username');
+    if (uname) {
+        document.getElementById("form-section").style.display = "none";
+        document.getElementById("cv-section").style.display = "block";
+        document.getElementById("dynamicName").innerText = "".concat(uname);
+    }
+}
+setTimeout(function () {
+    uriDecod();
+}, 500);

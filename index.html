@@ -17,7 +17,7 @@
   <body>
     <!----------------------- Form Section -------------------------->
     <div id="top">
-    <div class="form-section">
+    <div class="form-section" id="form-section">
 
     <div class="page-01">
     <form onsubmit="return takeValue()">
@@ -60,7 +60,6 @@
         </fieldset>
 
       </div>
-
 
 
       
@@ -123,7 +122,7 @@
 </div>
 <!--------------------------- CV Section ---------------------------->
 <!-- Apply class of cv-section for switch form -->
-<div class="cv-section"  style="display: none;">
+<div id="cv-section" class="cv-section"  style="display: none;">
 
 <section class="flex">
 <div class="section-of-cv">
@@ -194,7 +193,8 @@
 
   <div class="task-5-button flex">
   <button id="pdf-btn">PDF Button</button>
-  <a href="./protfolio.html"><button id="shareable-btn">Sharebale Button</button></a>
+  <button id="shareable-btn" onClick="uriEncod()">Shareable Button</button>
+
   
   </div>
 
@@ -204,6 +204,8 @@
 
 </div>
 
+
+<span id="usruri"></span>
     <script src="script.js"></script>
   </body>
 </html>

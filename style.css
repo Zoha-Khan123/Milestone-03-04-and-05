@@ -325,6 +325,29 @@ button:hover {
   transform-origin: center;
 }
 
+
+#usruri{
+  position: fixed;
+  top:0px;
+  left:0px;
+  width: 100vw;
+  height: 100vh;
+  padding: 10px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.751);
+  border: none;
+  border-radius: 15px;
+  transition: 21s;
+  align-content: center;
+  text-align: center;
+  font-size:large ;
+   display: none;
+
+}
+
+
+
+
 /* ------------------------------- Responsive CV ----------------------- */
 @media screen and (max-width: 1220px) {
   .section-of-cv {
